@@ -30,7 +30,7 @@ stages
 }
 }			
 }
-	stage ('test source code')
+	stage ('build my package')
 {
 		steps
 {
