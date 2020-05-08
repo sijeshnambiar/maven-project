@@ -36,7 +36,17 @@ stages
 {
 			withMaven(jdk: 'local_jdk', maven: 'local_mvn') 
 {
-				sh 'mvn package'
+				sh 'mvn packgae'
+}
+}			
+}
+	stage ('tomcat container')
+{
+		steps
+{
+			sshagent(['deploypackage']) 
+{
+    sh 'scp -o StrictHostKeyChecking=no */target/*.war ec2-user@172.31.32.126:/var/lib/tomcat/webapps'
 }
 }			
 }
