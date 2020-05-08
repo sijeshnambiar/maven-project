@@ -19,7 +19,16 @@ stages
 				sh 'mvn compile'
 }
 }			
-
+}
+	stage ('test source code')
+{
+		steps
+{
+			withMaven(jdk: 'local_jdk', maven: 'local_mvn') 
+{
+				sh 'mvn test'
+}
+}			
 }
 }
 }
